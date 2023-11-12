@@ -14,5 +14,11 @@ export const useTaskListStore = defineStore("taskList", {
         return item.id !== itemId;
       });
     },
+    toggleCompleted(idToFind) {
+      const task = this.taskList.find((obj) => obj.id === idToFind);
+      if (task) {
+        task.completed = !task.completed;
+      }
+    },
   },
 });
